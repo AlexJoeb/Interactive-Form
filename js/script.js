@@ -188,19 +188,21 @@ form.submit((e) => {
     emailInput.css('border-color', '#f31431');
   }
   
-  if(!creditCardRegex.test(creditCardInput.val())){
-    error(`Your payment card number must be 13-16 digits long.`);
-    creditCardInput.css('border-color', '#f31431');
-  }
-  
-  if(!zipCodeRegex.test(zipCode.val())){
-    error(`Your zip code must be 5 digits long.`);
-    zipCode.css('border-color', '#f31431');
-  }
+  if(payment.val() == 'credit card'){
+    if(!creditCardRegex.test(creditCardInput.val())){
+      error(`Your payment card number must be 13-16 digits long.`);
+      creditCardInput.css('border-color', '#f31431');
+    }
+    
+    if(!zipCodeRegex.test(zipCode.val())){
+      error(`Your zip code must be 5 digits long.`);
+      zipCode.css('border-color', '#f31431');
+    }
 
-  if(!cvvRegex.test(cvv.val())){
-    error(`Your CVV must be 3 digits long.`);
-    cvv.css('border-color', '#f31431');
+    if(!cvvRegex.test(cvv.val())){
+      error(`Your CVV must be 3 digits long.`);
+      cvv.css('border-color', '#f31431');
+    }
   }
 
   if(numOfSelected <= 0){
